@@ -1,0 +1,12 @@
+version: '2'
+
+services:
+  meshcentral:
+    build: ./
+    command: --notls --port 8001 --mpsport 8002
+    volumes:
+        - ./etc/.meshcentral-data:/opt/meshcentral/node_modules/.meshcentral-data:rw
+        - ./etc/.meshcentral-files:/opt/meshcentral/node_modules/.meshcentral-files:rw
+    ports:
+      - 8001:8001
+      - 8002:8002
